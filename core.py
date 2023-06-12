@@ -5,8 +5,8 @@ import pytesseract
 from playaudio import playaudio
 
 
-tess_config = r'--psm 7 --oem 3 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
+tess_config = r'-c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxy'
+play = True
 def check_ROI(x, y, width, height, UI):
     x = int(x)
     y = int(y)
@@ -86,7 +86,7 @@ def start_detection(x, y, width, height, UI, sound):
     pytesseract.pytesseract.tesseract_cmd = r'Tesseract-OCR\tesseract.exe'
 
     if sound is None:
-        sound_file = "ha-gay-By-tuna.mp3"
+        sound_file = "pop.wav"
     else:
         sound_file = sound
     x = int(x)
@@ -125,7 +125,6 @@ def start_detection(x, y, width, height, UI, sound):
         # Perform case-insensitive comparison
         if zabiti_text.lower() == ocr_output_cleaned.lower():
             # print("The words are equal (case-insensitive).")
-            print("Slabkoooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
             playaudio(sound_file)
         else:
             pass
